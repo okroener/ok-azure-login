@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2">
+  <file source-language="en" datatype="plaintext" original="messages" date="2024-07-31T00:00:00Z" product-name="ok_azure_login">
+    <header/>
+    <body>
+      <trans-unit id="loginHeading" xml:space="preserve">
+        <source>Login with Azure</source>
+      </trans-unit>
+      <trans-unit id="loginLink" xml:space="preserve">
+        <source>Login with Azure</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
