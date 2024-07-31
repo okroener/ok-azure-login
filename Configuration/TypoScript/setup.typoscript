@@ -1,0 +1,8 @@
+plugin.tx_okazurelogin_pi1 {
+    settings {
+        tenantId = ${plugin.tx_okazurelogin.settings.tenantId}
+        clientId = ${plugin.tx_okazurelogin.settings.clientId}
+        clientSecret = ${plugin.tx_okazurelogin.settings.clientSecret}
+        redirectUri = ${plugin.tx_okazurelogin.settings.redirectUri}
+    }
+}
