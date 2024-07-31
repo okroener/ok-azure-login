@@ -3,7 +3,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Azure Login',
     'description' => 'Login and register backend users using Azure AD',
-    'category' => 'frontend',
+    'category' => 'plugin',
     'author' => 'Oliver Kroener',
     'author_email' => 'ok@oliver-kroener.de',
     'state' => 'beta',
