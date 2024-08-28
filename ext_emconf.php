@@ -2,12 +2,12 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Azure Login',
-    'description' => 'Login and register backend users using Azure AD',
+    'description' => 'A TYPO3 extension to login using Microsoft Entra and MSGraph API.',
     'category' => 'plugin',
     'author' => 'Oliver Kroener',
     'author_email' => 'ok@oliver-kroener.de',
+    'author_company' => 'Oliver Kroener',
     'state' => 'beta',
-    'clearCacheOnLoad' => 0,
     'version' => '0.0.1',
     'constraints' => [
         'depends' => [
@@ -15,5 +15,10 @@ $EM_CONF[$_EXTKEY] = [
         ],
         'conflicts' => [],
         'suggests' => [],
+    ],
+    'autoload' => [
+        'psr-4' => [
+            'OliverKroener\\OkAzureLogin\\' => 'Classes/',
+        ],
     ],
 ];

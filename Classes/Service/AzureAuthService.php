@@ -4,13 +4,24 @@ namespace OliverKroener\OkAzureLogin\Service;
 
 use Microsoft\Kiota\Authentication\Oauth\AuthorizationCodeContext;
 use Microsoft\Graph\Core\Authentication\GraphPhpLeagueAuthenticationProvider;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 class AzureAuthService
 {
+    /**
+     * @var string $tenantId
+     */
     protected $tenantId;
+    /**
+     * @var string $clientId
+     */
     protected $clientId;
+    /**
+     * @var string $clientSecret
+     */
     protected $clientSecret;
+    /**
+     * @var string $redirectUri
+     */
     protected $redirectUri;
 
     /**

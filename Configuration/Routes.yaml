@@ -2,8 +2,9 @@ routeEnhancers:
   OkAzureLogin:
     type: Extbase
     extension: OkAzureLogin
-    plugin: Pi1
+    plugin: Login
     routes:
-      - { routePath: '/azure-login', _controller: 'AzureLogin::login', _arguments: {} }
-    defaultController: 'AzureLogin::login'
+      - routePath: '/redirectURI'
+        _controller: 'Login::login'
+    defaultController: 'Login::show'
     aspects: {}

@@ -1,17 +1,18 @@
-plugin.tx_okazurelogin_pi1 {
+plugin.tx_okazurelogin {
 
     settings {
-        # cat=plugin.tx_okazurelogin_pi1; type=string; label=Azure AD Tenant ID
+        # cat=plugin.tx_okazurelogin_azurelogin; type=string; label=Azure AD Tenant ID
         tenantId = your-tenant-id
-        # cat=plugin.tx_okazurelogin_pi1; type=string; label=Azure AD Client ID
+        # cat=plugin.tx_okazurelogin_azurelogin; type=string; label=Azure AD Client ID
         clientId = your-client-id
-        # cat=plugin.tx_okazurelogin_pi1; type=string; label=Azure AD Client Secret
+        # cat=plugin.tx_okazurelogin_azurelogin; type=string; label=Azure AD Client Secret
         clientSecret = your-client-secret
-        # cat=plugin.tx_okazurelogin_pi1; type=string; label=Azure AD Redirect URI
+        # cat=plugin.tx_okazurelogin_azurelogin; type=string; label=Azure AD Redirect URI
         redirectUri = your-redirect-uri
     }
 
-    view {
-        templateRootPaths.0 = EXT:ok_azure_login/Resources/Private/Templates/
+    persistence {
+        # cat=plugin.tx_okazurelogin_azurelogin; type=int+; label=Storage PID
+        storagePid = 0
     }
 }

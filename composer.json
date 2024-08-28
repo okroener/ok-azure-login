@@ -1,14 +1,15 @@
 {
     "name": "oliverkroener/ok-azure-login",
     "type": "typo3-cms-extension",
-    "description": "Login and register backend users using Azure AD",
+    "description": "Login and register frontend and backend users using Azure Entra",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "Oliver Kröner",
+            "name": "Oliver Kroener",
             "email": "ok@oliver-kroener.de"
         }
     ],
+    "version": "0.0.1",
     "require": {
         "php": ">=7.4",
         "typo3/cms-core": "^11.5 || ^12.4",
