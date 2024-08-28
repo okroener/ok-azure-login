@@ -1,0 +1,10 @@
+<f:layout name="Default" />
+
+<f:section name="content">
+    <h2><f:translate key="tx_okazurelogin.name">Login with Azure/Microsoft 365</f:translate></h2>
+    <button class="btn btn-primary btn-outline">
+        <a href="https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&redirect_uri={redirectUri}&response_mode=query&scope=openid%20profile%20User.Read">
+            <f:translate key="tx_okazurelogin.loginlink">Login with Azure</f:translate>
+        </a>
+    </button>
+</f:section>
