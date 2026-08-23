@@ -2,6 +2,8 @@
 
 TYPO3 extension for frontend and backend login via Microsoft Entra ID (Azure AD) using the OAuth 2.0 authorization code flow and Microsoft Graph API.
 
+[![Version](https://img.shields.io/badge/version-4.0.3-green)](https://github.com/oliverkroener/ok_azure_login/releases)
+
 |                  |                                              |
 |------------------|----------------------------------------------|
 | Extension key    | `ok_azure_login`                             |
