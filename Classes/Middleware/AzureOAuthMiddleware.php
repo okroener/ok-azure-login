@@ -174,6 +174,12 @@ class AzureOAuthMiddleware implements MiddlewareInterface, LoggerAwareInterface
                 // Redirect to /typo3/login directly — /typo3 would trigger BackendUserAuthenticator
                 // to redirect to /login route, losing our query parameter.
                 $returnUrl = rtrim($returnUrl, '/') . '/login';
+                // Pin the provider. The backend only remembers the one you picked in the
+                // SameSite=Strict cookie be_lastLoginProvider, which the browser withholds after
+                // the cross-site hop through Microsoft. Without this the screen falls back to
+                // whichever provider sorts first - ok_keycloak also registers at sorting 75 - and
+                // that template cannot render azure_login_error, so the failure looks silent.
+                $returnUrl = $this->appendParam($returnUrl, 'loginProvider', 'azure-login');
                 $returnUrl = $this->appendParam($returnUrl, 'azure_login_error', 'auth_failed');
                 $this->logger->debug('Azure OAuth: BE login failed, redirecting to login', [
                     'redirectUrl' => $returnUrl,

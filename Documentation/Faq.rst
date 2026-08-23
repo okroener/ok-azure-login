@@ -25,6 +25,22 @@ Frequently Asked Questions (FAQ)
         no matching record is found, the login is rejected. The extension does
         not create new user accounts automatically.
 
+    ..  accordion-item:: The backend login error message does not appear
+        :name: faq-error-message-missing
+        :header-level: 2
+
+        The backend remembers the login provider you picked in the
+        ``be_lastLoginProvider`` cookie, which TYPO3 sets with
+        ``SameSite=Strict``. A browser withholds a Strict cookie on a redirect
+        chain that started on another site - which is exactly what an OAuth
+        callback is - so the login screen falls back to whichever provider
+        sorts first, and that template cannot render ``azure_login_error``.
+
+        The extension therefore pins ``loginProvider=azure-login`` on its error
+        redirects. This matters as soon as a second SSO extension is installed:
+        ``ok_keycloak`` registers its provider at the same ``sorting`` value, so
+        without the pin which template renders comes down to package order.
+
     ..  accordion-item:: Can I use this for both frontend and backend login?
         :name: faq-frontend-backend
         :header-level: 2

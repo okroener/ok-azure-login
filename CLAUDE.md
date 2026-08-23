@@ -66,6 +66,17 @@ The extension handles two login contexts (FE and BE) through a shared middleware
 - Callback route: `/typo3/azure-login/callback` → `AzureCallbackController` (public access, no CSRF token required)
 - Implements both `render()` (v12) and `modifyView()` (v13+) for cross-version compatibility
 - Iterates all sites via `SiteFinder` to find first site with valid backend OAuth config
+- **Error redirects pin `loginProvider=azure-login`** and target `/typo3/login`, not `/typo3`.
+  `/typo3` makes `BackendUserAuthenticator` redirect an anonymous request itself and the query
+  string is lost; the pin is needed because the backend only remembers the chosen provider in the
+  `SameSite=Strict` cookie `be_lastLoginProvider`, which the browser withholds after the
+  cross-site hop. Without it the screen falls back to the provider that sorts first — `ok_keycloak`
+  registers at the same `sorting => 75` — and that template cannot render `azure_login_error`, so
+  the failure looks silent.
+- **State signing**: this extension keys the HMAC on the plain `SYS/encryptionKey`. `ok_keycloak`
+  deliberately domain-separates its own key (`hash_hmac('sha256', 'ok_keycloak/oauth-state', $key)`)
+  because both middlewares match on a bare `code` + `state` and identical keys made the two
+  extensions' callbacks interchangeable. Keep that in mind before changing the state format here.
 
 ### Backend Configuration Module
 
